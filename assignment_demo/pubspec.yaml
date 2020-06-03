@@ -38,6 +38,7 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
   http: ^0.12.0+4
+  flutter_spinkit: "^4.1.2"
 # The following section is specific to Flutter.
 flutter:
 

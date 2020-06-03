@@ -1,17 +1,49 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+
+  @override
+  _HomeState createState() => _HomeState();
+
+}
+
+class _HomeState extends State<Home> {
+
   List allCountries;
-  Map indiaData;
-  final List<String> listItems = [];
 
-  Home({Key key, this.allCountries, this.indiaData}) : super(key: key);
+  fetchCountryData() async {
+    http.Response response = await http.get(
+        'https://corona.lmao.ninja/v2/countries?sort=deaths');
+    setState(() {
+      allCountries = json.decode(response.body);
+    });
+  }
+
+  Map indiaData;
+
+  fetchIndiaData() async {
+    http.Response response = await http.get(
+        'https://disease.sh/v2/countries/India?yesterday=false');
+    setState(() {
+      indiaData = json.decode(response.body);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchCountryData();
+    fetchIndiaData();
+  }
+
   @override
   Widget build(BuildContext context) {
-    for (var i = 0; i < 500; i++) {
-      listItems.add('Item ${i}');
-    }
 
     return DefaultTabController(
         length: 2,
@@ -21,7 +53,7 @@ class Home extends StatelessWidget {
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 new SliverAppBar(
-                  title: Text("Covid Tracker"),
+                  title: Text("Covid Tracker", style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.5, fontSize: 30,),textAlign: TextAlign.center,),
                   floating: true,
                   pinned: true,
                   snap: true,
@@ -41,9 +73,11 @@ class Home extends StatelessWidget {
             },
             body: new TabBarView(
               children: [
-
-                ListView.builder(
-                  itemCount: listItems.length,
+                allCountries == null || indiaData == null ? SpinKitRotatingCircle(
+              color: Colors.white,
+              size: 50.0,
+            ) : ListView.builder(
+                  itemCount: allCountries.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
                       child: ExpansionTile(
@@ -90,7 +124,7 @@ class Home extends StatelessWidget {
                                             style: TextStyle(color: Colors.green[500], letterSpacing: 1.5),
                                             children: <TextSpan>[
                                               TextSpan(text: 'RECOVERED: ', style: TextStyle(fontWeight: FontWeight.bold)),
-                                              TextSpan(text: allCountries[index]['recovered'].toString(), style: TextStyle(fontWeight: FontWeight.bold)),
+                                              TextSpan(text:allCountries[index]['recovered'].toString(), style: TextStyle(fontWeight: FontWeight.bold)),
                                             ],
                                           ),
                                         ),
@@ -109,8 +143,6 @@ class Home extends StatelessWidget {
                                       )
                                     ],
                                   )
-
-
                               ),
                             ),
                             ],
@@ -119,7 +151,10 @@ class Home extends StatelessWidget {
                     );
                   },
                 ),
-                Container(
+                allCountries == null || indiaData == null ? SpinKitRotatingCircle(
+                  color: Colors.white,
+                  size: 50.0,
+                ): Container(
                   child: Column(
                     children: <Widget>[
                       Padding(
