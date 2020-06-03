@@ -41,6 +41,7 @@ class Home extends StatelessWidget {
             },
             body: new TabBarView(
               children: [
+
                 ListView.builder(
                   itemCount: listItems.length,
                   itemBuilder: (BuildContext context, int index) {
@@ -64,7 +65,7 @@ class Home extends StatelessWidget {
                                             style: TextStyle(color: Colors.red[500], letterSpacing: 1.5),
                                             children: <TextSpan>[
                                               TextSpan(text: 'CONFIRMED: ', style: TextStyle(fontWeight: FontWeight.bold)),
-                                              TextSpan(text: allCountries[index]['cases'].toString()),
+                                              TextSpan(text: allCountries[index]['cases'].toString(), style: TextStyle(fontWeight: FontWeight.bold)),
                                             ],
                                           ),
                                         ),
@@ -77,7 +78,7 @@ class Home extends StatelessWidget {
                                             style: TextStyle(color: Colors.blue[500], letterSpacing: 1.5),
                                             children: <TextSpan>[
                                               TextSpan(text: 'ACTIVE: ', style: TextStyle(fontWeight: FontWeight.bold)),
-                                              TextSpan(text: allCountries[index]['active'].toString()),
+                                              TextSpan(text: allCountries[index]['active'].toString(), style: TextStyle(fontWeight: FontWeight.bold)),
                                             ],
                                           ),
                                         ),
@@ -89,7 +90,7 @@ class Home extends StatelessWidget {
                                             style: TextStyle(color: Colors.green[500], letterSpacing: 1.5),
                                             children: <TextSpan>[
                                               TextSpan(text: 'RECOVERED: ', style: TextStyle(fontWeight: FontWeight.bold)),
-                                              TextSpan(text: allCountries[index]['recovered'].toString()),
+                                              TextSpan(text: allCountries[index]['recovered'].toString(), style: TextStyle(fontWeight: FontWeight.bold)),
                                             ],
                                           ),
                                         ),
@@ -101,7 +102,7 @@ class Home extends StatelessWidget {
                                             style: TextStyle(color: Colors.grey[500], letterSpacing: 1.5),
                                             children: <TextSpan>[
                                               TextSpan(text: 'DECEASED: ', style: TextStyle(fontWeight: FontWeight.bold)),
-                                              TextSpan(text: allCountries[index]['deaths'].toString()),
+                                              TextSpan(text: allCountries[index]['deaths'].toString(), style: TextStyle(fontWeight: FontWeight.bold)),
                                             ],
                                           ),
                                         ),
@@ -131,7 +132,7 @@ class Home extends StatelessWidget {
                               child: Row(
                                 children: <Widget>[
                                   Text('CONFIRMED: ', style: TextStyle(letterSpacing: 1.5,fontSize: 24, color: Colors.red[600])),
-                                  Text(indiaData['cases'].toString(), style: TextStyle(letterSpacing: 1.5, color: Colors.red[600]),),
+                                  Text(indiaData['cases'].toString(), style: TextStyle(letterSpacing: 1.5, fontSize: 24, color: Colors.red[600]),),
                                 ],
                               ),
                             ),
@@ -148,7 +149,7 @@ class Home extends StatelessWidget {
                               child: Row(
                                 children: <Widget>[
                                   Text('ACTIVE: ', style: TextStyle(letterSpacing: 1.5,fontSize: 24, color: Colors.blue[600]),),
-                                  Text(indiaData['active'].toString(), style: TextStyle(letterSpacing: 1.5, color: Colors.blue[600]),),
+                                  Text(indiaData['active'].toString(), style: TextStyle(letterSpacing: 1.5, fontSize: 24, color: Colors.blue[600]),),
                                 ],
                               ),
                             ),
@@ -165,7 +166,7 @@ class Home extends StatelessWidget {
                               child: Row(
                                 children: <Widget>[
                                   Text('RECOVED: ', style: TextStyle(letterSpacing: 1.5, fontSize: 24,color: Colors.green[600]),),
-                                  Text(indiaData['active'].toString(), style: TextStyle(letterSpacing: 1.5, color: Colors.green[600]),),
+                                  Text(indiaData['active'].toString(), style: TextStyle(letterSpacing: 1.5, fontSize: 24, color: Colors.green[600]),),
                                 ],
                               ),
                             ),
@@ -182,7 +183,7 @@ class Home extends StatelessWidget {
                               child: Row(
                                 children: <Widget>[
                                   Text('DECEASED: ', style: TextStyle(letterSpacing: 1.5, fontSize: 24,color: Colors.grey[600]),),
-                                  Text(indiaData['deaths'].toString(), style: TextStyle(letterSpacing: 1.5, color: Colors.grey[600]),),
+                                  Text(indiaData['deaths'].toString(), style: TextStyle(letterSpacing: 1.5, fontSize: 24, color: Colors.grey[600]),),
                                 ],
                               ),
                             ),
