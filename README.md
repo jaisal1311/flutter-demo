@@ -10,4 +10,16 @@ The API is maintained by https://github.com/NovelCOVID/API .
 API-Link : https://corona.lmao.ninja/
 
 
+## Screenshots of the product
+
+### World-wide Dasboard
+<img src = "sc1.png" width=250, height=470>
+
+### Expanded Country-wise Demography
+<img src = "sc2.png" width=250, height=470>
+
+### India Demography
+<img src = "Screenshot_1591525578.png" width=250, height=470>
+
+
 
