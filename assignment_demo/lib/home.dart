@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
 
   fetchCountryData() async {
     http.Response response = await http.get(
-        'https://corona.lmao.ninja/v2/countries?sort=deaths');
+        'https://corona.lmao.ninja/v2/countries?sort=cases');
     setState(() {
       allCountries = json.decode(response.body);
     });
@@ -64,8 +64,8 @@ class _HomeState extends State<Home> {
                   ,
                   bottom: new TabBar(
                     tabs: [
-                      new Tab(child: Text('WORLD-WIDE', style: TextStyle(fontSize: 20),),),
-                      new Tab(child: Text('INDIA', style: TextStyle(fontSize: 20),),),
+                      new Tab(child: Text('WORLD-WIDE', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
+                      new Tab(child: Text('INDIA', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
                     ],
                   ),
                 ),
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
             },
             body: new TabBarView(
               children: [
-                allCountries == null || indiaData == null ? SpinKitRotatingCircle(
+                allCountries == null || indiaData == null ? SpinKitWanderingCubes(
               color: Colors.white,
               size: 50.0,
             ) : ListView.builder(
