@@ -12,17 +12,17 @@ The API is maintained by https://github.com/NovelCOVID/API .
 
 > ## Screenshots of the product.
 
-> ### Parsing data using REST API 
-<img src = "images/Screenshot_1591692596.png" width=250, height=470>
+>> ### Parsing data using REST API 
+>><img src = "images/Screenshot_1591692596.png" width=250, height=470>
 
-> ### World-wide Dasboard
-<img src = "images/sc1.png" width=250, height=470>
+>> ### World-wide Dasboard
+>><img src = "images/sc1.png" width=250, height=470>
 
-> ### Expanded Country-wise Demography
-<img src = "images/sc2.png" width=250, height=470>
+>> ### Expanded Country-wise Demography
+>><img src = "images/sc2.png" width=250, height=470>
 
-> ### India Demography
-<img src = "images/Screenshot_1591525578.png" width=250, height=470>
+>> ### India Demography
+>><img src = "images/Screenshot_1591525578.png" width=250, height=470>
 
 
 
