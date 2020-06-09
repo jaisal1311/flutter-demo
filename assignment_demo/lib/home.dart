@@ -73,10 +73,19 @@ class _HomeState extends State<Home> {
             },
             body: new TabBarView(
               children: [
-                allCountries == null || indiaData == null ? SpinKitWanderingCubes(
+                allCountries == null || indiaData == null ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SpinKitWanderingCubes(
               color: Colors.white,
               size: 50.0,
-            ) : ListView.builder(
+            ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Testing the suspects...', style: TextStyle(letterSpacing: 2.0, fontSize: 20),),
+                    )
+                  ],
+                ) : ListView.builder(
                   itemCount: allCountries.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
@@ -151,9 +160,18 @@ class _HomeState extends State<Home> {
                     );
                   },
                 ),
-                allCountries == null || indiaData == null ? SpinKitRotatingCircle(
-                  color: Colors.white,
-                  size: 50.0,
+                allCountries == null || indiaData == null ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SpinKitWanderingCubes(
+                      color: Colors.white,
+                      size: 50.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Testing the suspects...', style: TextStyle(letterSpacing: 2.0, fontSize: 20),),
+                    )
+                  ],
                 ): Container(
                   child: Column(
                     children: <Widget>[

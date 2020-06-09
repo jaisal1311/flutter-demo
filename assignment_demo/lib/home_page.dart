@@ -53,14 +53,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SliverList(
-//              delegate: SliverChildBuilderDelegate(
-//                    (context, index) => ListTile(title: Text('Item #$index')),
-//                childCount:100,
-//              ),
-
-            ),
-
           ],
         ),
       ),
